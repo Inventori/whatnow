@@ -50,6 +50,8 @@
      <Compile Include="Assets\Scripts\EnemyScripts\BulletScript.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\EnemyPatrol.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\HitEffectScript.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\MinigunReversedScript.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\MinigunScript.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\SawScript.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\ShootingEffectScript.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\TurretReversedScript.cs" />

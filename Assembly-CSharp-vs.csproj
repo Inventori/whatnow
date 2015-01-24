@@ -46,6 +46,16 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ScreenManipulator.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\BulletScript.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\EnemyPatrol.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\HitEffectScript.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\SawScript.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\ShootingEffectScript.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\TurretReversedScript.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\TurretScript.cs" />
+     <Compile Include="Assets\Scripts\MouseScript.cs" />
+     <Compile Include="Assets\Scripts\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>

@@ -12,6 +12,8 @@ public class PlayerScript : MonoBehaviour {
 	public float jumpForce;
 	//public float doubleJumpForce;
 	public float momentum;
+	public Animator animator;
+	public float move;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +22,7 @@ public class PlayerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		move = Math.Abs (Input.GetAxis ("Horizontal"));
 		horiz = horiz*(1-momentum) + Input.GetAxis ("Horizontal")*(momentum);
 
 		if (grounded){
@@ -29,8 +32,13 @@ public class PlayerScript : MonoBehaviour {
 		}
 
 		if (Input.GetButtonDown("Jump") && grounded){
+			animator.SetTrigger("JumpPressed");
 			rigidbody2D.AddForce(new Vector2(horiz*flightMultiplier,jumpForce),ForceMode2D.Impulse);
 			grounded = false;
+		}
+
+		if (Input.GetAxis ("Horizontal") != 0) {
+			animator.SetFloat("Move", move);		
 		}
 		//else if(Input.GetButtonDown("Jump") && !doubleJumped){
 		//	rigidbody2D.AddForce(new Vector2(horiz,doubleJumpForce),ForceMode2D.Impulse);
@@ -42,10 +50,15 @@ public class PlayerScript : MonoBehaviour {
 			transform.position = new Vector3(0,0,0);
 		}
 
+
+
 	}
 	void OnTriggerStay2D(Collider2D col){
 		if (col.gameObject.tag == "Ground") {
-			if(grounded == false) horiz = 0; //Don't keep momentum when touching ground first time after jump.
+			if(grounded == false) {
+				horiz = 0; //Don't keep momentum when touching ground first time after jump.
+				animator.SetTrigger ("Landed");
+			}
 			grounded = true;
 			//doubleJumped = false;
 		} else

@@ -20,7 +20,7 @@ public class TurretScript : MonoBehaviour {
 		timer = 0;
 		anim = GetComponent<Animator>();
 		
-		spawnPoint = new Vector3(transform.position.x + 0.8f, transform.position.y + 0.3f, transform.position.z);
+		spawnPoint = new Vector3(transform.position.x + 0.4f, transform.position.y + 0.25f, transform.position.z);
 		
 	
 	}

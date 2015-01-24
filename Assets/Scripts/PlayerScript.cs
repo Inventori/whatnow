@@ -14,10 +14,12 @@ public class PlayerScript : MonoBehaviour {
 	public float momentum;
 	public Animator animator;
 	public float move;
+	public bool facingRight;
 
 	// Use this for initialization
 	void Start () {
 		grounded = true;
+		facingRight = true;
 	}
 	
 	// Update is called once per frame
@@ -36,7 +38,13 @@ public class PlayerScript : MonoBehaviour {
 			rigidbody2D.AddForce(new Vector2(horiz*flightMultiplier,jumpForce),ForceMode2D.Impulse);
 			grounded = false;
 		}
-
+		
+			if (Input.GetAxis ("Horizontal") < 0 && facingRight || Input.GetAxis ("Horizontal") > 0 && !facingRight)
+			{
+				facingRight = !facingRight;
+				transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+			}
+	
 		if (Input.GetAxis ("Horizontal") != 0) {
 			animator.SetFloat("Move", move);		
 		}

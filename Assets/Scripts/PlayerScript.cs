@@ -80,6 +80,8 @@ public class PlayerScript : MonoBehaviour {
 		case "Ground":
 			break;
 		case "MovingGround":
+			MovingPlatform p = col.gameObject.GetComponentInParent<MovingPlatform>();
+			if(p != null) transform.SetParent(col.gameObject.transform);
 			break;
 		case "Ladder":
 			break;
@@ -88,12 +90,11 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
-
-		horiz = 0; //Don't keep momentum when touching ground first time after jump.
-		animator.SetTrigger("Landed");
-		grounded = true;
-		MovingPlatform p = col.gameObject.GetComponentInParent<MovingPlatform>();
-		if(p != null) transform.SetParent(col.gameObject.transform);
+		if (!grounded) {
+			horiz = 0; //Don't keep momentum when touching ground first time after jump.
+			animator.SetTrigger ("Landed");
+			grounded = true;
+		}
 		
 	}
 }

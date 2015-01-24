@@ -25,7 +25,7 @@ public class EnemyPatrol : MonoBehaviour {
 		moveRight = true;
 		
 		fwd = new Vector2 (70, -45);
-		down = new Vector2 (0, 0);
+		down = new Vector2 (0, -90);
 		
 	
 	}
@@ -35,7 +35,7 @@ public class EnemyPatrol : MonoBehaviour {
 		
 		
 		
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, fwd, 5, mask.value);
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, fwd, 2, mask.value);
 		
 		if(hit.collider != null)
 		{
@@ -48,7 +48,7 @@ public class EnemyPatrol : MonoBehaviour {
 			moveRight = false;
 		}
 		
-		RaycastHit2D hit2 = Physics2D.Raycast(transform.position, down, 5, mask.value);
+		RaycastHit2D hit2 = Physics2D.Raycast(transform.position, down, 2, mask.value);
 		
 		if (hit2.collider != null)
 		{
@@ -82,7 +82,7 @@ public class EnemyPatrol : MonoBehaviour {
 		
 		Debug.Log (moveRight);
 		
-		Debug.DrawRay(transform.position, fwd, Color.green);
+		Debug.DrawRay(transform.position, down, Color.green);
 		
 		transform.Translate(Vector2.right * speed * Time.deltaTime);
 		

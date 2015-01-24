@@ -32,7 +32,7 @@ public class TurretScript : MonoBehaviour {
 		
 		if (timer > ammoInterwall)
 		{
-			anim.SetTrigger("Shoot");
+			//anim.SetTrigger("Shoot");
 			Instantiate(ammoPrefab, spawnPoint, Quaternion.Euler(0, 90, 0));
 			RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, 20, mask.value);
 			

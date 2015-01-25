@@ -16,10 +16,12 @@ public class PlayerScript : MonoBehaviour {
 	public float momentum;
 	public Animator animator;
 	public float move;
+	public int hitPoint;
 
 	// Use this for initialization
 	void Start () {
 		grounded = true;
+		hitPoint = 1;
 		//facingRight = true;
 	}
 	
@@ -69,7 +71,11 @@ public class PlayerScript : MonoBehaviour {
 		if (transform.position.y < -100) {
 			transform.position = new Vector3(0,0,0);
 		}
-
+		
+		if(hitPoint <= 0){
+			//PLAYER BITES THE BUCKET
+			gameObject.SetActive(false);
+		}
 		//RaycastHit2D hit = Physics2D.Raycast(transform.position, down, 2, 0);
 
 	}

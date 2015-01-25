@@ -5,6 +5,8 @@ public class TurretScript : MonoBehaviour {
 	
 	public GameObject ammoPrefab;
 	public GameObject hitPrefab;
+	public GameObject player;
+	public PlayerScript pS;
 	public float ammoInterwall;
 	
 	private float timer;
@@ -16,6 +18,8 @@ public class TurretScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		player = GameObject.FindGameObjectWithTag("Player");
+		pS = player.GetComponent<PlayerScript>();
 		
 		timer = 0;
 		anim = GetComponent<Animator>();
@@ -43,6 +47,7 @@ public class TurretScript : MonoBehaviour {
 				
 				if (hit.collider.tag == "Player")
 				{
+					pS.hitPoint--;
 					//Whatever you want to happen to poor player
 				}
 			}

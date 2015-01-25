@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\EnemyScripts\ShootingEffectScript.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\TurretReversedScript.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\TurretScript.cs" />
+     <Compile Include="Assets\Scripts\MouseScript.cs" />
      <Compile Include="Assets\Scripts\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
  <Reference Include="UnityEngine.UI">

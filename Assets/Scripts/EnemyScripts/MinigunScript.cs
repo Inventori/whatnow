@@ -5,6 +5,8 @@ public class MinigunScript : MonoBehaviour {
 	
 	public GameObject ammoPrefab;
 	public GameObject hitPrefab;
+	public GameObject player;
+	public PlayerScript pS;
 	public float ammoInterwall;
 	
 	private float timer;
@@ -25,6 +27,8 @@ public class MinigunScript : MonoBehaviour {
 		
 		timer = 0;
 		
+		player = GameObject.FindGameObjectWithTag("Player");
+		pS = player.GetComponent<PlayerScript>();
 		
 		spawnPoint = new Vector3(transform.position.x + 0.35f, transform.position.y, transform.position.z);
 		
@@ -52,6 +56,7 @@ public class MinigunScript : MonoBehaviour {
 				
 				if (hit.collider.tag == "Player")
 				{
+					pS.hitPoint--;
 					//Whatever you want to happen to poor player
 				}
 			}

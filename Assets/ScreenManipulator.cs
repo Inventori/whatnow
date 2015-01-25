@@ -2,7 +2,8 @@
 
 public class ScreenManipulator : MonoBehaviour {
 	void Start () {
-		Screen.SetResolution(1920*2 / 4, 1080 / 4, false);
+		Screen.SetResolution(1920*2 / 2, 1080 / 2, false);
 		Debug.Log("Screen resolution modified!");
+		Screen.showCursor = false; 
 	}
 }

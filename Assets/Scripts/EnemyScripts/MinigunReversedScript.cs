@@ -60,14 +60,14 @@ public class MinigunReversedScript : MonoBehaviour {
 		}
 		
 		
-		RaycastHit2D upwards = Physics2D.Raycast(transform.position, Vector2.up, 1, mask.value);
+		RaycastHit2D upwards = Physics2D.Raycast(transform.position, Vector2.up, 0.5f, mask.value);
 		
 		if (upwards.collider != null)
 		{
 			moveUp = false;
 		}
 		
-		RaycastHit2D downwards = Physics2D.Raycast(transform.position, -Vector2.up, 1, mask.value);
+		RaycastHit2D downwards = Physics2D.Raycast(transform.position, -Vector2.up, 0.5f, mask.value);
 		
 		if (downwards.collider != null)
 		{

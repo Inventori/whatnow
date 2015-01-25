@@ -49,29 +49,32 @@ public class EnemyPatrol : MonoBehaviour {
 			moveRight = false;
 		}
 		
-		RaycastHit2D hit2 = Physics2D.Raycast(transform.position, down, 2, mask.value);
-		
-		if (hit2.collider != null)
-		{
-			rigidbody2D.gravityScale = 1;
-		}
-		else
-		{
-			rigidbody2D.gravityScale = 1;
-		}
-		
 		RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, -Vector2.right, 1, mask.value);
 		
 		if(hitLeft.collider != null)
 		{
-			moveRight = false;
+			if (moveRight)
+			{
+				moveRight = false;
+			}
+			else 
+			{
+				moveRight = true;
+			}
 		}
 		
 		RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, 1, mask.value);
 		
 		if (hitRight.collider != null)
 		{
-			moveRight = true;
+			if (moveRight)
+			{
+					moveRight = false;
+			}
+			else 
+			{
+				moveRight = true;
+			}
 		}
 		
 		if (moveRight)
@@ -89,15 +92,18 @@ public class EnemyPatrol : MonoBehaviour {
 		if (transform.eulerAngles.y < 180)
 		{
 			fwd = new Vector2(70, -45);
+
 		}
 		else 
 		{
 			fwd = new Vector2 (-70, -45);	
+
 		}
 		
 	
-		
-		transform.Translate(Vector2.right * speed * Time.deltaTime);
+		transform.Translate (Vector2.right * speed * Time.deltaTime);
+
+	
 		
 		
 		
